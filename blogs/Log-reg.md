@@ -12,4 +12,13 @@ Given an input feature vector X which is for instance the image of a dog, an alg
 
 To train the parameters we need to define a cost function, formally given that we have a training set of data we want a model so that the outputs of the training set match the ground truth.
 
-We also need to use a `Loss Function` to measure how well our model is doing.
+We also need to use a `Loss Function` -(ylog\bar{y}+(1-y)log(1-\bar{y})) to measure how well our model is doing. `Cost function` tells us how well our model is doing on the entire training set.
+
+`Gradient Descent` is used to learn the parameters `w` and `b` which minimize J(w,b). The cost function looks like a bowl which is convex. We initialize the parameters to a certain value and at each step.
+
+The operations of a NN consist of a `forward pass` where we compute the outputs of the NN and then a `Backward pass` where it calculates the parameters  or derivatives. The `Computation Graph` helps us understand why NNs work this way. Let's say we have a function of J(a,b,c) = 3(a+bc) it consists of 3 steps:
+1. u = bc
+2. v = a + u
+3. J = 3v
+
+In context of our problem the J is our cost function which we want to optimize. Left to right pass gives the value of the function.
