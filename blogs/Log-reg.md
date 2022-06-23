@@ -21,4 +21,20 @@ The operations of a NN consist of a `forward pass` where we compute the outputs 
 2. v = a + u
 3. J = 3v
 
-In context of our problem the J is our cost function which we want to optimize. Left to right pass gives the value of the function.
+In context of our problem the J is our cost function which we want to optimize. Left to right pass gives the value of the function. To learn the parameters w, b meaning we want to minimize J we `backpropagate` the errors to see how much we need to tweak the parameters.
+
+## Unoptimized Gradient Descent
+J = 0, dw = 0, dw2 = 0, db = 0
+for i to m
+  z(i) = wTX+b
+  a(i) = sigmoid(z(i))
+  J += -[y(i)loga(i)+(1-y(i)log(1-a(i)))]
+    dz(i) += X(i)dz(i)
+    dw += X_1(i)dz(i)
+    dw2 += X_2(i)dz(i)
+    db += dz(i) 
+  J /= m
+  dw /= m; dw2 /= m; db /= m
+  w = w - alpha*dw
+  w2 = w2 - alpha*dw2
+  b = b - alpha*db
